@@ -23,6 +23,7 @@ class ProjectionHead(nn.Module):  # learnable nonlinear transformation between r
         return x
 
 
+# InfoNCE loss function (contrastive loss)
 class NTXent(object):
     def __init__(self, batch_size, temperature):
         super().__init__()
