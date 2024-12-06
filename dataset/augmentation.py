@@ -6,7 +6,7 @@ class SignalAugmentation(object):
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.gn_scaling = np.arange(0.05, 0.1, 0.01)  # for 5% ~ 10% gaussian noise. 5%만 먼저 해봄
+        self.gn_scaling = np.arange(0.05, 0.1, 0.01)  # for 5% ~ 10% gaussian noise.
 
     def gaussian_noise(self, x, p=0.5):
         """Randomly add Gaussian noise to all channels."""
