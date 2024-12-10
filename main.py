@@ -1,14 +1,36 @@
-# Load libraries
+# Load libraries and files
 import torch
+from dataset.parser import Dataset
+from dataset.augmentation import SignalAugmentation
 
 # Define Args
 
 # main
 if __name__ == "__main__":
     # parser 지정
-    args = parser.parse_args()
-    assert args.n_views == 2
 
+    # Load data
+    dataset = Dataset()
+    data_list, info_list = dataset.parser()
+
+    # Data Augmentation
+    augmentation = SignalAugmentation()
+
+
+
+
+    # Load train, valid dataset
+    train_dataset = data_list[:5]  # 일단 전체로 돌리기
+    # valid_dataset = data_list[4:]
+
+
+    # Put dataset in torch DataLoader
+    train_loader = torch.utils.data.DataLoader(
+        train_dataset, batch_size=64, shuffle=True, drop_last=True
+    )
+
+
+    '''
     # load dataset while setting data path
     dataset = ContrastiveLearningDataset(args.data)
 
@@ -35,4 +57,7 @@ if __name__ == "__main__":
     # initialize SimCLR model and train it
     simclr = SimCLR(model=model, optimizer=optimizer, scheduler=scheduler, args=args)
     simclr.train(train_loader)
+    '''
+
+
 
